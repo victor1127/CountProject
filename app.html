@@ -56,7 +56,50 @@
     <!--Main-->
     <main class="flex-shrink-0">
         <div class="container">
-            <h1>sdfsdf</h1>sdfsdfsfsdf
+            <div class="row py-5 row-cols-1 row-cols-md-2">
+                <!--program description-->
+                <div class="col-md-5 border-end border-2">
+                    <h1 class="fw-bold display-5 1h-1 mb-3">A Coding Project</h1>
+                    <h4 class="lead">Live life one loop at a time. A javascript coding exercise using loops. 
+                                Write a program that desplays the numbers from 0 to 100. Display the even numbers 
+                                in <strong>Bold.</strong></h4>                 
+                    <h4 class="pt-4">Instructions</h4>
+                    <hr class="m-1">
+                    <p>Enter a starting and ending values. Press the button and the values will appear.</p>
+                </div>
+                <div class="col-md-7 p-3">
+                    <h5>Enter values</h5>
+                    <form class="row">
+                        <!--start value-->
+                        <div class="col">
+                            <input id="startvalue" class="form-control" type="number" value=0 aria-label="0"/>
+                        </div>
+                        <!--End value-->
+                        <div class="col">
+                            <input id="endtvalue" class="form-control" type="number"  value="100" aria-label="100"/>
+                        </div>
+                        <!--button-->
+                        <div class="col-12 d-flex justify-content-end mt-2">
+                            <button id="btnresult" class="btn btn-dark " type="button">Display Results</button>
+                        </div>
+                    </form>
+
+                    <!--table-->
+                    <div class="pt-5">
+                        <h4><b>Results</b></h4>
+                        <hr class="m-1">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <tbody id="tableresult">
+                                    <tr><td>1</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
