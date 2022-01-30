@@ -59,25 +59,183 @@
     <!--Main-->
     <main class="flex-shrink-0">
         <div class="container px-5 py-5">
-            <div class="row py-5 row-cols-1 row-cols-md-2">
+            <!--GetValue method-->
+            <div class="row pt-5 row-cols-1 row-cols-md-2">
+                <div>
+                    <h4><b>The code is structured in several function.</b></h4>
+                    <hr class="standard mt-0">
+                </div>
+
                 <!--The code-->
                 <div class="col-md-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        function DisplayHelloWorld()
+                        function GetValues()
                         {
-                            alert("Hello world");
+                            //start values
+                            let start = document.getElementById("startvalue").value;
+                            let end = document.getElementById("endtvalue").value; 
+
+                            //call validation method
+                            let isValidValue = ValidateUserEntry(start, end);
+                            if(!isValidValue)
+                            {
+                                alert("You must enter intergers only");
+                                return;
+                            }  
+
+                            //call generate numbers method
+                            let generatedNumbers = GenerateNumbers(start, end);
+                        
+                            //call display numbers method
+                            DisplayNumbers(generatedNumbers);                           
                         }
                     </code>
                     </pre>
                 </div>
 
                 <!--code description-->
-                <div class="col-md-4 pt-2">
-                    <p>The code is structed in one function.</p>
-                    <h5>Hello, world</h5>
-                    <p>Hello world is a function that display an alert with a message of "Hello, world"</p>
+                <div class="col-md-4 pt-2 d-flex align-items-center">
+                    <div>
+                        <h5 class="pt-2">GetValues</h5>
+                        <p>GetValues is a function in charge of collecting the user entries for the start and end values,
+                           after that, it calls other functions to validate, generate and display the numbers."
+                        </p>
+                    </div>
                 </div>
-            </div>         
+            </div>
+
+            <!--ValidateUserEntry method-->
+            <div class="row row-cols-1 row-cols-md-2">
+                <!--Method description-->
+                <div class="col-md-4 pt-2 order-last order-md-first d-flex align-items-center">
+                    <div>
+                        <h5 class="pt-2">ValidateUserEntry</h5>
+                        <p>ValidateUserEntry is a function in charge of making sure that the user entry is an actual number,
+                            whether it is positive or negative."
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8 ">
+                    <!--Validate user entry display-->
+                    <pre class="line-numbers"><code class="language-javascript">
+                        function GetValues()
+                        {
+                            //start values
+                            let start = document.getElementById("startvalue").value;
+                            let end = document.getElementById("endtvalue").value; 
+
+                            //call validation method
+                            let isValidValue = ValidateUserEntry(start, end);
+                            if(!isValidValue)
+                            {
+                                alert("You must enter intergers only");
+                                return;
+                            }  
+
+                            //call generate numbers method
+                            let generatedNumbers = GenerateNumbers(start, end);
+                        
+                            //call display numbers method
+                            DisplayNumbers(generatedNumbers);                           
+                        }
+                    </code>
+                    </pre>     
+                </div>
+            </div> 
+
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col-md-4 pt-2 order-last order-md-first d-flex align-items-center">
+                    <div>
+                        <h5 class="pt-2">GenerateNumbers</h5>
+                        <p>This function is in charge of generating an array of numbers starting from the start value variable till 
+                            the end value variable."
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <pre class="line-numbers"><code class="language-javascript">
+                        function GenerateNumbers(startValue, endValue)
+                        {
+                            let numbers = [];
+                            let counter = 0;
+                        
+                            while(startValue <= endValue)
+                            {
+                                numbers[counter]=startValue;
+                                startValue++;
+                                counter++;
+                            }
+                        
+                            return numbers;
+                        }
+                    </code>
+                    </pre> 
+                </div>
+
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col-md-8">
+                    <pre class="line-numbers"><code class="language-javascript">
+                        function IsEvent(number)
+                        {
+                            if(number%2==0)
+                            {
+                                return true;
+                            }
+                            return false;
+                        }
+                    </code>
+                    </pre>
+                </div>
+
+                <div class="col-md-4 d-flex align-items-center">
+                    <div>
+                        <h5 class="pt-2">IsEvent</h5>
+                        <p>As its name implies, this function confirm if the given number is even,
+                           returns true if it is and false if not."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col-md-8">
+                    <pre class="line-numbers"><code class="language-javascript">
+                        function DisplayNumbers(startValue)
+                        {
+                            let numTemplate="";
+                            startValue.forEach(number=>
+                            {
+                                if(IsEvent(number))
+                                {
+                                    numTemplate += `<tr><td><b>${number}</b></td></tr>`;
+                                    return;
+                                }
+                        
+                                numTemplate += `<tr><td>${number}</td></tr>`;
+                        
+                            });
+                        
+                            document.getElementById("tableresult").innerHTML= numTemplate;
+                        }
+                    </code>
+                    </pre>
+                        
+                </div>
+
+                <div class="col-md-4 d-flex align-items-center">
+                    <div>
+                        <h5>DisplayNumbers</h5>           
+                        <p>DisplayNumbers is a function that will display the numbers between the start and end values provided by the user,
+                            the even numbers are display in bold."
+                        </p>   
+                    </div>
+   
+                </div>
+            </div>
+
         </div>
     </main>
 

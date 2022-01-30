@@ -89,3 +89,8 @@ code[class*="language-"], pre[class*="language-"]
     font-size: 3em;
 
 }
+.standard
+{
+    border: 1px solid;
+    
+}
